@@ -8,6 +8,9 @@
   "author": "yongyong.fyy <yongyong.fyy@alibaba-inc.com>",
   "private": true,
   "scripts": {
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "build:pwa": "quasar build -m pwa",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore ./",
     "test": "echo \"No test specified\" && exit 0"
   },
@@ -15,8 +18,9 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "quasar": "^1.9.5",
-    "vue-class-component": "^7.2.2",
-    "vue-property-decorator": "^8.3.0"
+    "tunajs": "^1.0.11",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^8.4.1"
   },
   "devDependencies": {
     "@quasar/app": "^1.6.2",

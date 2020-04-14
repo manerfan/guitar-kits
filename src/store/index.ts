@@ -1,8 +1,7 @@
 import { store } from 'quasar/wrappers'
 import Vuex from 'vuex'
 
-// import example from './module-example'
-// import exampleState from './module-example/state'
+import guitarAudio from './guitar-audio'
 
 /*
  * If not building with SSR mode, you can
@@ -10,8 +9,6 @@ import Vuex from 'vuex'
  */
 
 export interface StoreInterface {
-  // Define your own store structure, using submodules if needed
-  // example: typeof exampleState;
   example: unknown;
 }
 
@@ -20,7 +17,7 @@ export default store(function ({ Vue }) {
 
   const Store = new Vuex.Store({
     modules: {
-      // example
+      guitarAudio
     },
 
     // enable strict mode (adds overhead!)

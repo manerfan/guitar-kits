@@ -68,6 +68,7 @@ module.exports = {
 
   // add your custom rules here
   rules: {
+    semi: ["warn", "always"],
     // allow async-await
     'generator-star-spacing': 'off',
     // allow paren-less arrow functions
@@ -87,6 +88,8 @@ module.exports = {
     // TypeScript
     'quotes': ['warn', 'single'],
     '@typescript-eslint/explicit-function-return-type': 'off',
+
+    "space-before-function-paren": ['off'],
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'

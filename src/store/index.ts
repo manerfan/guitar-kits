@@ -1,7 +1,5 @@
-import { store } from 'quasar/wrappers'
-import Vuex from 'vuex'
-
-import guitarAudio from './guitar-audio'
+import { store } from 'quasar/wrappers';
+import Vuex from 'vuex';
 
 /*
  * If not building with SSR mode, you can
@@ -12,18 +10,16 @@ export interface StoreInterface {
   example: unknown;
 }
 
-export default store(function ({ Vue }) {
-  Vue.use(Vuex)
+export default store(function({ Vue }) {
+  Vue.use(Vuex);
 
   const Store = new Vuex.Store({
-    modules: {
-      guitarAudio
-    },
+    modules: {},
 
     // enable strict mode (adds overhead!)
     // for dev mode only
     strict: !!process.env.DEV
-  })
+  });
 
-  return Store
-})
+  return Store;
+});

@@ -1,38 +1,40 @@
 <template>
   <div>
-    <p>{{ title }}</p>
-    <ul>
-      <li v-for="todo in todos" :key="todo.id" @click="increment">{{ prettyTodo(todo) }}</li>
-    </ul>
-    <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
-    <p>Active: {{ active ? 'yes' : 'no' }}</p>
-    <p>Clicks on todos: {{ clickCount }}</p>
+    <button @click="play">play</button>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
-import { Todo, Meta } from './models'
+import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Todo, Meta } from './models';
+import guiarAudio from '../services/GuitarStringsAudio';
 
 @Component
 export default class ClassComponent extends Vue {
-  @Prop({ type: String, required: true }) readonly title!: string
-  @Prop({ type: Array, default: () => [] }) readonly todos!: Todo[]
-  @Prop({ type: Object, required: true }) readonly meta!: Meta
-  @Prop(Boolean) readonly active!: boolean
+  @Prop({ type: String, required: true }) readonly title!: string;
+  @Prop({ type: Array, default: () => [] }) readonly todos!: Todo[];
+  @Prop({ type: Object, required: true }) readonly meta!: Meta;
+  @Prop(Boolean) readonly active!: boolean;
 
-  clickCount = 0
+  play() {
+    // guiarAudio.play(1, 5);
+    guiarAudio.decompose(
+      { strings: 4, pins: 3 },
+      { strings: 3, pins: 2 },
+      { strings: 2, pins: 1 },
+      { strings: 1, pins: 0 }
+    );
 
-  increment () {
-    this.clickCount++
-  }
-
-  get todoCount () {
-    return this.todos.length
-  }
-
-  prettyTodo (todo: Todo) {
-    return `${todo.id} - ${todo.content}`
+    window.setTimeout(
+      () =>
+        guiarAudio.sweep(
+          { strings: 4, pins: 3 },
+          { strings: 3, pins: 2 },
+          { strings: 2, pins: 1 },
+          { strings: 1, pins: 0 }
+        ),
+      3000
+    );
   }
 }
 </script>

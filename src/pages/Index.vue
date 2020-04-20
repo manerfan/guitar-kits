@@ -1,22 +1,17 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+    <example-component title="Example component" active :todos="todos" :meta="meta"></example-component>
   </q-page>
 </template>
 
 <script lang="ts">
-import ExampleComponent from 'components/ClassComponent.vue'
-import { Todo, Meta } from 'components/models'
+import ExampleComponent from 'components/ClassComponent.vue';
+import { Todo, Meta } from 'components/models';
 
 export default {
   name: 'PageIndex',
   components: { ExampleComponent },
-  data () {
+  data() {
     const todos: Todo[] = [
       {
         id: 1,
@@ -38,11 +33,11 @@ export default {
         id: 5,
         content: 'ct5'
       }
-    ]
+    ];
     const meta: Meta = {
       totalCount: 1200
-    }
-    return { todos, meta }
+    };
+    return { todos, meta };
   }
-}
+};
 </script>
